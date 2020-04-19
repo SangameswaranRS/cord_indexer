@@ -4,3 +4,5 @@ spacy~=2.2.4
 pytextrank~=2.0.1
 pandas~=0.23.4
 gensim~=3.8.2
+pymysql
+numpy

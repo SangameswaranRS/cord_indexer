@@ -45,7 +45,15 @@ class ContentHandler:
         # important sentence as the one that is most similar to all.
         self.spacy_pipeline = spacy.load("en_core_web_sm")
         self.spacy_pipeline.add_pipe(self.tr.PipelineComponent, name="TextRank", last=True)
-        self.word2vec_trained = os.path.exists(constants.WORD2VEC_MODEL_PATH)
+        current_path = os.getcwd()
+        can_check_in_path = 'es_core' in current_path
+        if can_check_in_path:
+            self.word2vec_trained = os.path.exists(constants.WORD2VEC_MODEL_PATH)
+        else:
+            # Handle calls from indexer.py
+            os.chdir('./es_core/')
+            self.word2vec_trained = os.path.exists(constants.WORD2VEC_MODEL_PATH)
+            os.chdir(current_path)
         if not self.word2vec_trained:
             self.train_word2vec()
         self.word2vec_model = self.retrieve_model()
