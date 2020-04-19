@@ -45,9 +45,6 @@ for i in range(0, df.shape[0]):
         'abstract_index': abstract_index,
         'max_ranking_phrase': max_ranking_text
     })
-    # FIXME: sanga.s
-    if i > 1000:
-        break
 
 pprint(docs_to_be_indexed[:2])
 print('[INFO] document list prepared')
