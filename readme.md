@@ -1,6 +1,6 @@
 ES Index for research papers submitted under Coronavirus Category..
 
-##Setup
+## Setup
 Run all the scripts under installation.
 
 ## Basic usage
